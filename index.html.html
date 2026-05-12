@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VEEA | Delivering the Future of East Africa Logistics</title>
+    <title>VEEA | Logistics for East Africa</title>
     
     <!-- Scripts & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,223 +18,236 @@
         .bg-veea-orange { background-color: #FF5722; }
         
         .hero-gradient { 
-            background: linear-gradient(rgba(0, 70, 175, 0.85), rgba(0, 40, 100, 0.9)), 
-            url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=2000'); 
+            background: linear-gradient(rgba(0, 70, 175, 0.8), rgba(0, 40, 100, 0.9)), 
+            url('https://images.pexels.com/photos/29399463/pexels-photo-29399463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); 
             background-size: cover; 
             background-position: center; 
         }
 
-        /* East Africa Map Watermark styling */
         .map-bg-container {
             position: absolute;
-            top: 10%;
-            right: -5%;
-            width: 50%;
-            opacity: 0.07;
+            top: 5%;
+            right: -10%;
+            width: 80%;
+            opacity: 0.05;
             z-index: 0;
             pointer-events: none;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: #FF5722;
+        @media (min-width: 768px) {
+            .map-bg-container { width: 40%; right: 0; }
+        }
+
+        /* Smooth Mobile Menu Transition */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.active {
+            max-height: 400px;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
             <div class="flex items-center gap-2">
-                <div class="text-3xl font-extrabold tracking-tighter">
+                <div class="text-2xl sm:text-3xl font-extrabold tracking-tighter">
                     <span class="veea-blue">VE</span><span class="veea-orange">EA</span>
                 </div>
-                <div class="hidden md:block h-8 w-px bg-gray-200 mx-3"></div>
-                <span class="hidden md:block text-xs font-bold text-gray-500 leading-tight uppercase">VE East Africa<br>Logistics Co.</span>
+                <div class="h-6 w-px bg-gray-200 mx-2"></div>
+                <span class="text-[10px] sm:text-xs font-bold text-gray-500 leading-tight uppercase">VE East Africa<br>Logistics Co.</span>
             </div>
             
+            <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center gap-8 font-bold text-sm uppercase tracking-wide">
                 <a href="#home" class="hover:text-orange-600 transition">Home</a>
                 <a href="#about" class="hover:text-orange-600 transition">About Us</a>
                 <a href="#services" class="hover:text-orange-600 transition">Services</a>
-                <a href="tel:+254710577795" class="bg-veea-blue text-white px-6 py-3 rounded-full hover:bg-orange-600 transition flex items-center gap-2 shadow-lg">
-                    <i class="fas fa-phone-alt"></i> Call Us
+                <a href="tel:+254710577795" class="bg-veea-blue text-white px-6 py-3 rounded-full hover:bg-orange-600 transition shadow-md">
+                    Call Us
                 </a>
             </div>
-            <button class="lg:hidden text-2xl"><i class="fas fa-bars"></i></button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="lg:hidden p-2 text-2xl text-slate-700">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile/iPad Dropdown Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-100">
+            <div class="flex flex-col p-4 space-y-4 font-bold text-sm uppercase">
+                <a href="#home" class="py-2 border-b border-gray-50">Home</a>
+                <a href="#about" class="py-2 border-b border-gray-50">About Us</a>
+                <a href="#services" class="py-2 border-b border-gray-50">Services</a>
+                <a href="tel:+254710577795" class="veea-orange py-2">Contact: +254 710 577 795</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="home" class="hero-gradient min-h-[90vh] flex items-center text-white relative pt-10">
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-8">
-                <span class="bg-orange-500 px-4 py-2 rounded-lg text-sm font-black tracking-widest uppercase">Fast • Reliable • Nationwide</span>
-                <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1]">
+    <header id="home" class="hero-gradient min-h-[80vh] flex items-center text-white relative py-12 sm:py-20">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="max-w-4xl space-y-6 sm:space-y-8">
+                <span class="inline-block bg-orange-600 px-3 py-1 sm:px-4 sm:py-2 rounded text-[10px] sm:text-xs font-black tracking-widest uppercase">
+                    Kenya • Uganda • Tanzania • Rwanda
+                </span>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
                     Delivering the <br><span class="text-orange-400">Future</span> of Logistics.
                 </h1>
-                <p class="text-xl text-blue-50 max-w-lg leading-relaxed font-medium">
-                    The regional leader in seamless freight, warehousing, and delivery solutions across Kenya and East Africa.
+                <p class="text-lg sm:text-xl text-blue-50 max-w-xl leading-relaxed font-medium">
+                    Your trusted regional partner for fast, secure, and nationwide freight and warehousing.
                 </p>
                 
-                <!-- Quick Tracking Tool -->
-                <div class="bg-white p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2 max-w-xl">
+                <!-- Tracking Tool -->
+                <div class="bg-white p-2 rounded-xl sm:rounded-2xl shadow-2xl flex flex-col sm:flex-row gap-2 max-w-xl">
                     <div class="flex-1 flex items-center px-4 gap-3">
-                        <i class="fas fa-box text-orange-500 text-xl"></i>
-                        <input type="text" placeholder="Enter Tracking ID..." class="w-full py-4 text-slate-800 outline-none font-bold">
+                        <i class="fas fa-search text-orange-500"></i>
+                        <input type="text" placeholder="Tracking ID..." class="w-full py-3 sm:py-4 text-slate-800 outline-none font-bold text-sm sm:text-base">
                     </div>
-                    <button class="bg-veea-blue hover:bg-slate-900 text-white font-black px-10 py-4 rounded-xl transition-all">
+                    <button class="bg-veea-blue hover:bg-slate-900 text-white font-black px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all text-sm uppercase">
                         Track Now
                     </button>
                 </div>
             </div>
-            
-            <!-- Hero Image Box -->
-            <div class="hidden lg:block relative">
-                <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&q=80&w=1000" alt="VEEA Logistics Truck" class="rounded-[40px] shadow-2xl border-8 border-white/10">
-            </div>
         </div>
     </header>
 
-    <!-- About Us Section with Map Background -->
-    <section id="about" class="py-24 relative bg-white overflow-hidden">
-        <!-- East Africa Map Watermark -->
+    <!-- About Us Section -->
+    <section id="about" class="py-16 sm:py-24 relative bg-white overflow-hidden">
         <div class="map-bg-container">
             <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" class="fill-current veea-blue">
                 <path d="M450,200 L550,220 L600,300 L580,450 L650,550 L620,700 L500,850 L350,880 L250,750 L200,600 L180,400 L250,300 L350,220 Z" />
             </svg>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-8">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div class="space-y-6 sm:space-y-8">
                     <div>
-                        <h2 class="text-sm font-black veea-orange uppercase tracking-[0.3em] mb-2">Who We Are</h2>
-                        <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900">A Customer-Focused Logistics Powerhouse</h3>
+                        <h2 class="text-xs font-black veea-orange uppercase tracking-[0.2em] mb-2">Who We Are</h2>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">A Customer-Focused Regional Leader</h3>
                     </div>
-                    <p class="text-xl text-slate-600 leading-relaxed">
-                        At <strong>VEEA</strong>, we believe that logistics is more than just moving boxes—it’s about moving businesses. We are a customer-focused company that bridges the gap between suppliers and destinations across the East African landscape.
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+                        <strong>VEEA</strong> is more than a logistics company; we are your strategic partner in growth. Being a <strong>customer-focused company</strong>, our priority is your peace of mind.
                     </p>
-                    <div class="bg-slate-50 p-8 rounded-3xl border-l-8 border-veea-blue">
-                        <h4 class="text-2xl font-bold mb-4 text-slate-800">What We Do</h4>
-                        <p class="text-xl font-medium text-slate-700 italic leading-snug">
-                            "Our main job is to ensure what you transport reaches your target destination <span class="veea-orange">fast</span>, <span class="veea-orange">secure</span>, and <span class="veea-orange underline">worry-free</span>."
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-l-4 sm:border-l-8 border-veea-blue">
+                        <h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-800">Our Mission</h4>
+                        <p class="text-lg sm:text-xl font-medium text-slate-700 italic">
+                            "To ensure what you transport reaches your destination <span class="veea-orange">fast</span>, <span class="veea-orange">secure</span>, and <span class="veea-orange underline">worry-free</span>."
                         </p>
                     </div>
                 </div>
 
-                <!-- Regional Stats Box -->
-                <div class="bg-veea-blue rounded-[2rem] p-10 text-white shadow-2xl space-y-8">
-                    <h4 class="text-2xl font-bold uppercase tracking-tight">Regional Reach</h4>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white/10 p-6 rounded-2xl border border-white/10">
-                            <h5 class="text-orange-400 font-black text-3xl">KENYA</h5>
-                            <p class="text-xs font-bold uppercase opacity-60 mt-1 tracking-widest">Full Nationwide Coverage</p>
+                <!-- iPad/Mobile Regional Stats -->
+                <div class="bg-veea-blue rounded-2xl sm:rounded-[2rem] p-6 sm:p-10 text-white shadow-xl space-y-6 sm:space-y-8">
+                    <h4 class="text-xl sm:text-2xl font-bold uppercase tracking-tight">East Africa Coverage</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/10 p-4 sm:p-6 rounded-xl border border-white/10">
+                            <h5 class="text-orange-400 font-black text-2xl">KENYA</h5>
+                            <p class="text-[10px] font-bold uppercase opacity-60 tracking-widest">47 Counties</p>
                         </div>
-                        <div class="bg-white/10 p-6 rounded-2xl border border-white/10">
-                            <h5 class="text-orange-400 font-black text-3xl">EAST AFRICA</h5>
-                            <p class="text-xs font-bold uppercase opacity-60 mt-1 tracking-widest">Uganda | Tanzania | Rwanda</p>
+                        <div class="bg-white/10 p-4 sm:p-6 rounded-xl border border-white/10">
+                            <h5 class="text-orange-400 font-black text-2xl">EA REGION</h5>
+                            <p class="text-[10px] font-bold uppercase opacity-60 tracking-widest">Cross-Border</p>
                         </div>
                     </div>
-                    <ul class="space-y-4 font-semibold">
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-500"></i> Secure cross-border transit</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-500"></i> Tech-enabled warehouse management</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-500"></i> Real-time fleet monitoring</li>
-                    </ul>
-                    <a href="https://wa.me/254710577795" class="block text-center bg-veea-orange py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white hover:text-veea-blue transition-all">Start Your Shipment</a>
+                    <a href="https://wa.me/254710577795" class="block text-center bg-veea-orange py-4 rounded-xl font-black uppercase tracking-widest hover:scale-105 transition-transform">
+                        WhatsApp Quote
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Grid -->
-    <section id="services" class="py-24 container mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight uppercase">Our Best Services</h2>
-            <div class="w-20 h-1.5 bg-veea-orange mx-auto rounded-full"></div>
-            <p class="text-slate-500 font-medium italic">Reliable solutions tailored to your transport needs.</p>
+    <section id="services" class="py-16 sm:py-24 container mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight uppercase">Services</h2>
+            <div class="w-16 h-1 bg-veea-orange mx-auto rounded-full mt-4"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Service Cards -->
-            <div class="service-card group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition-all duration-500">
-                <i class="fas fa-truck-fast text-4xl veea-blue mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">Last-Mile Delivery</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Fast, reliable door-to-door delivery for local retail and e-commerce.</p>
-                <div class="h-1 w-0 group-hover:w-full bg-veea-orange transition-all duration-500"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <!-- Cards stack on mobile, 2 per row on iPad, 4 per row on Desktop -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <i class="fas fa-truck-fast text-3xl veea-blue mb-4 sm:mb-6"></i>
+                <h3 class="text-lg font-bold mb-2">Last-Mile</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Swift door-to-door delivery within Kenyan cities.</p>
             </div>
 
-            <div class="service-card group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition-all duration-500">
-                <i class="fas fa-ship text-4xl veea-blue mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">Regional Freight</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Moving heavy cargo across the borders of East Africa securely.</p>
-                <div class="h-1 w-0 group-hover:w-full bg-veea-orange transition-all duration-500"></div>
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <i class="fas fa-globe-africa text-3xl veea-blue mb-4 sm:mb-6"></i>
+                <h3 class="text-lg font-bold mb-2">Regional Freight</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Seamless transport across East African borders.</p>
             </div>
 
-            <div class="service-card group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition-all duration-500">
-                <i class="fas fa-boxes-stacked text-4xl veea-blue mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">Warehousing</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Safe inventory management and storage for your business stock.</p>
-                <div class="h-1 w-0 group-hover:w-full bg-veea-orange transition-all duration-500"></div>
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <i class="fas fa-warehouse text-3xl veea-blue mb-4 sm:mb-6"></i>
+                <h3 class="text-lg font-bold mb-2">Warehousing</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Secure storage and expert inventory management.</p>
             </div>
 
-            <div class="service-card group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition-all duration-500">
-                <i class="fas fa-cart-flatbed text-4xl veea-blue mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">E-commerce Fulfillment</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Automated pick, pack, and ship solutions for online sellers.</p>
-                <div class="h-1 w-0 group-hover:w-full bg-veea-orange transition-all duration-500"></div>
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <i class="fas fa-shopping-bag text-3xl veea-blue mb-4 sm:mb-6"></i>
+                <h3 class="text-lg font-bold mb-2">Fulfillment</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Complete e-commerce picking and shipping.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Footer -->
-    <footer class="bg-slate-900 text-slate-400 pt-24 pb-12">
-        <div class="container mx-auto px-6 grid lg:grid-cols-4 gap-12 mb-16">
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <div class="space-y-6">
-                <div class="text-4xl font-extrabold text-white tracking-tighter">VE<span class="text-orange-500">EA</span></div>
-                <p class="text-sm font-medium">Nairobi's trusted delivery and logistics partner. Your cargo moves, your business grows.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-orange-500 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                </div>
+                <div class="text-3xl font-extrabold text-white">VE<span class="text-orange-500">EA</span></div>
+                <p class="text-sm">Trusted delivery partner across East Africa. Your cargo moves, your business grows.</p>
             </div>
             
-            <div class="space-y-6">
-                <h4 class="text-white font-bold text-lg uppercase tracking-widest">Head Office</h4>
-                <div class="flex gap-3">
-                    <i class="fas fa-location-dot text-orange-500 mt-1"></i>
-                    <p class="text-sm">Simara Mall, Third Floor<br>Room 001, Tom Mboya Street<br>Nairobi, Kenya</p>
-                </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold uppercase text-xs tracking-widest">Office</h4>
+                <p class="text-sm flex items-start gap-2">
+                    <i class="fas fa-map-marker-alt text-orange-500 mt-1"></i>
+                    Simara Mall, 3rd Floor, Room 001<br>Tom Mboya Street, Nairobi
+                </p>
             </div>
 
-            <div class="space-y-6">
-                <h4 class="text-white font-bold text-lg uppercase tracking-widest">Contact Us</h4>
-                <div class="space-y-4">
-                    <a href="tel:+254710577795" class="flex items-center gap-3 text-sm hover:text-white transition">
-                        <i class="fas fa-phone-volume text-orange-500"></i> +254 710 577 795
-                    </a>
-                    <a href="mailto:info@veea.com" class="flex items-center gap-3 text-sm hover:text-white transition">
-                        <i class="fas fa-envelope text-orange-500"></i> info@veea.com
-                    </a>
-                </div>
-            </div>
-
-            <div class="space-y-6">
-                <h4 class="text-white font-bold text-lg uppercase tracking-widest">Support 24/7</h4>
-                <p class="text-sm">Available round the clock for dispatch tracking and customer inquiries.</p>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold uppercase text-xs tracking-widest">Inquiries</h4>
+                <a href="tel:+254710577795" class="text-sm block hover:text-white">Phone: +254 710 577 795</a>
+                <a href="mailto:info@veea.com" class="text-sm block hover:text-white">Email: info@veea.com</a>
             </div>
         </div>
-        
-        <div class="container mx-auto px-6 pt-10 border-t border-slate-800 text-center text-xs font-bold uppercase tracking-widest">
-            &copy; 2024 VE East Africa Logistics Co. All rights reserved.
+        <div class="container mx-auto px-4 sm:px-6 mt-12 pt-8 border-t border-slate-800 text-[10px] text-center uppercase font-bold tracking-widest">
+            &copy; 2024 VEEA Logistics Co.
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/254710577795" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-transform z-50">
+    <!-- Mobile Floating WhatsApp Button -->
+    <a href="https://wa.me/254710577795" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center text-2xl sm:text-3xl z-50 hover:scale-110 transition-transform">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
